@@ -1,0 +1,17 @@
+use std::io;
+use crossterm::{
+    event::{self, Event, KeyCode},
+    terminal::{disable_raw_mode, enable_raw_mode, EnterAlternateScreen, LeaveAlternateScreen},
+    ExecutableCommand,
+};
+
+pub fn handle_events() -> io::Result<bool> {
+    if event::poll(std::time::Duration::from_millis(50))? {
+        if let Event::Key(key) = event::read()? {
+            if key.kind == event::KeyEventKind::Press && key.code == KeyCode::Char('q') {
+                return Ok(true);
+            }
+        }
+    }
+    Ok(false)
+}
