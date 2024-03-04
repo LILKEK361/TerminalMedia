@@ -18,9 +18,15 @@ pub fn build_ui() -> io::Result<()>{
     let mut terminal = Terminal::new(CrosstermBackend::new(stdout()))?;
 
     let mut should_quit = false;
+
+    let mut min_song: i32 = 0;
+    let mut max_song: i32 = 5;
+
+
+    let songs = vec!["1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     while !should_quit {
-        terminal.draw(|f| tui::ui(f, vec!["1","2","!","3","5"]))?;
-        should_quit = eventhandler::handle_events()?;
+        terminal.draw(|f| tui::ui(f,songs.clone() , min_song.clone(), max_song.clone()))?;
+        should_quit = eventhandler::handle_events(&mut min_song.clone(), &mut max_song.clone(), songs.clone())?;
     }
 
     disable_raw_mode()?;
