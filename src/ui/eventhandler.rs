@@ -8,7 +8,7 @@ use crossterm::{
 use crate::ui;
 
 
-pub fn handle_events(min_song: &mut i32, max_song: &mut i32, songs: Vec<&str>) -> io::Result<bool> {
+pub fn handle_events(min_song: &mut i32,songs: Vec<&str>) -> io::Result<bool> {
 
     if event::poll(std::time::Duration::from_millis(50))? {
         if let Event::Key(key) = event::read()? {
@@ -20,13 +20,13 @@ pub fn handle_events(min_song: &mut i32, max_song: &mut i32, songs: Vec<&str>) -
                     KeyCode::Char('w') => {
                         if *min_song > 0 {
                             *min_song -= 1;
-                            *max_song -= 1;
+
                         }
                     }
                     KeyCode::Char('s') => {
-                        if *max_song < (songs.len() - 1).try_into().unwrap() {
+                        if *min_song < (songs.len() - 6).try_into().unwrap() {
                             *min_song += 1;
-                            *max_song += 1;
+
 
                         }
                     }

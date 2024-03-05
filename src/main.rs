@@ -1,4 +1,6 @@
 mod ui;
+mod cmdhandler;
+
 use std::io;
 use crate::ui::build_ui;
 

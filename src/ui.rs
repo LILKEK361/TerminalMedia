@@ -24,10 +24,17 @@ pub fn build_ui() -> io::Result<()>{
 
 
     let songs = vec!["1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
+    let keybinds = vec![
+                        "q: quit", "w: scroll up ",
+                        "s: scroll down",
+                        "space: play/pause",
+                        "right arrow: next song",
+                        "left arrow: previous song",
+                        ];
     while !should_quit {
 
-        terminal.draw(|f| tui::ui(f,songs.clone() , min_song.clone(), max_song.clone()))?;
-        should_quit = eventhandler::handle_events(&mut min_song, &mut max_song, songs.clone())?;
+        terminal.draw(|f| tui::ui(f,songs.clone() , min_song.clone(), keybinds.clone()))?;
+        should_quit = eventhandler::handle_events(&mut min_song, songs.clone())?;
     }
 
     disable_raw_mode()?;
