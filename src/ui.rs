@@ -20,7 +20,7 @@ pub fn build_ui() -> io::Result<()>{
     let mut should_quit = false;
 
     let mut min_song: i32 = 0;
-    let mut max_song: i32 = 5;
+
 
 
     let songs = vec!["1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
@@ -28,8 +28,8 @@ pub fn build_ui() -> io::Result<()>{
                         "q: quit", "w: scroll up ",
                         "s: scroll down",
                         "space: play/pause",
-                        "right arrow: next song",
-                        "left arrow: previous song",
+                        "right arrow: next",
+                        "left arrow: previous",
                         ];
     while !should_quit {
 

@@ -18,8 +18,8 @@ pub fn ui(frame: &mut Frame, songs: Vec<&str>, min_song: i32, key_binds: Vec<&st
     let main_layout = Layout::new(
         Direction::Vertical,
         [
-            Constraint::Percentage(85),
-            Constraint::Percentage(15)
+            Constraint::Percentage(90),
+            Constraint::Percentage(10)
         ]
     ).split(frame.size());
 
@@ -62,8 +62,8 @@ pub fn ui(frame: &mut Frame, songs: Vec<&str>, min_song: i32, key_binds: Vec<&st
 
 pub fn constraints_for_vec(vec: Vec<&str>) -> Vec<Constraint> {
     let mut constraints = Vec::new();
-    for _ in vec.clone() {
-        constraints.push(Constraint::Percentage(100 / vec.len() as u16));
+    for i in vec.clone() {
+        constraints.push(Constraint::Percentage(i.len() as u16 + 2));
     }
     constraints
 }
