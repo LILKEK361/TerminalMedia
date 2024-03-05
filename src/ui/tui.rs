@@ -24,8 +24,8 @@ pub fn ui(frame: &mut Frame, songs: Vec<&str>, min_song: i32, max_song: i32) {
     let main_layout = Layout::new(
         Direction::Vertical,
         [
-            Constraint::Percentage(90),
-            Constraint::Percentage(10)
+            Constraint::Percentage(85),
+            Constraint::Percentage(15)
         ]
     ).split(frame.size());
 
@@ -40,7 +40,12 @@ pub fn ui(frame: &mut Frame, songs: Vec<&str>, min_song: i32, max_song: i32) {
     let song_layout = Layout::new(
         Direction::Vertical,
         [
-            Constraint::Percentage(100),
+            
+            Constraint::Percentage(20),
+            Constraint::Percentage(20),
+            Constraint::Percentage(20),
+            Constraint::Percentage(20),
+            Constraint::Percentage(20),
 
 
         ]
@@ -61,6 +66,11 @@ pub fn ui(frame: &mut Frame, songs: Vec<&str>, min_song: i32, max_song: i32) {
         song_elements.push(song);
     }
 
+    for i in 0..5{
+        frame.render_widget(Paragraph::new(songs[(i + min_song) as usize]).block(Block::new().borders(Borders::all())), song_layout[i as usize]);
+    }
+
+    /*
     let song_list = List::new(song_elements)
         .block(Block::default().borders(Borders::all()).title("Songs"))
         .style(Style::default().fg(Color::White))
@@ -70,7 +80,7 @@ pub fn ui(frame: &mut Frame, songs: Vec<&str>, min_song: i32, max_song: i32) {
         .direction(ListDirection::TopToBottom);
 
     frame.render_widget(song_list, song_layout[0]);
-
+    */
 }
 
 
