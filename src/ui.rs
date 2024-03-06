@@ -25,7 +25,8 @@ pub fn build_ui() -> io::Result<()>{
 
     let songs = vec!["1","2","3","4","5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"];
     let keybinds = vec![
-                        "q: quit", "w: scroll up ",
+                        "q: quit",
+                        "w: scroll up ",
                         "s: scroll down",
                         "space: play/pause",
                         "right arrow: next",

@@ -1,12 +1,15 @@
 mod ui;
-mod cmdhandler;
+
+
 
 use std::io;
-use crate::ui::build_ui;
-
+use clap::{Arg, Command, Parser};
+use clap::Args;
 
 fn main() -> io::Result<()> {
-    build_ui()?;
+
+    ui::build_ui()?;
+
     Ok(())
 }
 

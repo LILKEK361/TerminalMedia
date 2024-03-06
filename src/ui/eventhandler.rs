@@ -24,7 +24,7 @@ pub fn handle_events(min_song: &mut i32,songs: Vec<&str>) -> io::Result<bool> {
                         }
                     }
                     KeyCode::Char('s') => {
-                        if *min_song < (songs.len() - 6).try_into().unwrap() {
+                        if *min_song < (songs.len() - 9).try_into().unwrap() {
                             *min_song += 1;
 
 
